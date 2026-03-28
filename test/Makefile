@@ -31,6 +31,10 @@ ifneq ($(GATES),yes)
 # RTL simulation:
 SIM_BUILD				= sim_build/rtl
 VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
+COMPILE_ARGS 		+= -I$(SRC_DIR)
+# Extra include dir hacked in for raybox-zero submodule:
+COMPILE_ARGS 		+= -I$(SRC_DIR)/raybox-zero/src/rtl
+COMPILE_ARGS		+= -DCOCOTB_RTL_SIM
 
 else
 
@@ -50,6 +54,8 @@ endif
 # Allow sharing configuration between design and testbench via `include`:
 COMPILE_ARGS 		+= -I$(SRC_DIR)
 
+# Include the simulated SPI texture ROM:
+VERILOG_SOURCES += $(PWD)/texture_rom/W25Q128JVxIM.v
 # Include the testbench sources:
 VERILOG_SOURCES += $(PWD)/tb.v
 TOPLEVEL = tb
@@ -59,3 +65,13 @@ COCOTB_TEST_MODULES = test
 
 # include cocotb's make rules to take care of the simulator setup
 include $(shell cocotb-config --makefiles)/Makefile.sim
+
+clean_frames:
+	rm -rf frames_out/*.ppm
+	rm -rf frames_out/*.png
+
+animate:
+	./animate.sh --
+
+wave:
+	gtkwave tb.vcd tb.gtkw

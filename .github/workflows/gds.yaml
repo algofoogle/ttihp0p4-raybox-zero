@@ -36,6 +36,8 @@ jobs:
 
       - name: GL test
         uses: TinyTapeout/tt-gds-action/gl_test@ihp-cmos5l
+        env:
+          FRAMES: 2 # For now, limit the test to just 2 frames, so it's much faster.
 
   viewer:
     needs: gds

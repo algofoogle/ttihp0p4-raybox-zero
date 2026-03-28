@@ -1,6 +1,8 @@
 ![](../../workflows/gds/badge.svg) ![](../../workflows/docs/badge.svg) ![](../../workflows/test/badge.svg) ![](../../workflows/fpga/badge.svg)
 
-# Tiny Tapeout Verilog Project Template
+# Raybox-zero submission to Tiny Tapeout experimental IHP-SG13CMOS5L shuttle
+
+For more information, see: https://github.com/algofoogle/ttcad25a-raybox-zero -- That is the version that was submitted to the TTCAD25a shuttle, and this version uses the same Verilog source code (predominantly in a git submodule located at `src/raybox-zero`).
 
 - [Read the documentation for project](docs/info.md)
 

@@ -2,7 +2,7 @@
 
 ## How it works
 
-This is an experimental GF180 (gf180mcuD Open PDK) updated submission of [ttcad25a-raybox-zero](https://github.com/algofoogle/ttcad25a-raybox-zero) (an updated version of [tt07-raybox-zero](https://github.com/algofoogle/tt07-raybox-zero), from the [raybox-zero](https://github.com/algofoogle/raybox-zero) project).
+This is an experimental IHP0p4 (IHP-SG13CMOS5L Open PDK) resubmission of [ttgf0p2-raybox-zero](https://github.com/algofoogle/ttgf0p2-raybox-zero) (an updated version of [tt07-raybox-zero](https://github.com/algofoogle/tt07-raybox-zero), from the [raybox-zero](https://github.com/algofoogle/raybox-zero) project).
 
 This project is a framebuffer-less VGA display generator (i.e. it is 'racing the beam') that produces a simple implementation of a "3D"-like ray casting game engine... just the graphics part of it. It is inspired by Wolfenstein 3D, using a map that is a grid of wall blocks, with basic texture mapping.
 
