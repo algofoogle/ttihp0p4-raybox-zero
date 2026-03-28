@@ -415,7 +415,7 @@ async def test_frames(dut):
             dut.gen_texb.value = 1 #NOTE: Immediate, so takes effect ON frame 13.
 
         # Create PPM file to visualise the frame, and write its header:
-        img = open(f"frames_out/rbz_basic_frame-{frame:04d}.ppm", "w")
+        img = open(f"frames_out/frame-{frame:03d}.ppm", "w")
         img.write("P3\n")
         img.write(f"{int(hrange*hres)} {vrange:d}\n")
         img.write("255\n")
