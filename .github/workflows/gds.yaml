@@ -39,6 +39,41 @@ jobs:
         env:
           FRAMES: 2 # For now, limit the test to just 2 frames, so it's much faster.
 
+      - name: Install ImageMagick
+        shell: bash
+        run: sudo apt-get update && sudo apt-get install -y imagemagick # ffmpeg
+
+      - name: Convert output frames from PPMs to PNGs
+        if: success() || failure() # Run this even if the step above fails.
+        shell: bash
+        run: |
+          pwd
+          ls -al
+          cd test
+          mkdir frames_out/png
+          cd frames_out
+          ../animate.sh png && cd png && tar czf ../frames-gl.tgz *.png
+
+      - name: Convert output frames from PPMs to animated GIF
+        if: success() || failure() # Run this even if the step above fails.
+        shell: bash
+        run: |
+          pwd
+          ls -al
+          cd test
+          cd frames_out
+          ../animate.sh frames-gl.gif
+
+      - name: Store frame output files
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: frames-gl
+          path: |
+            test/frames_out/frames-gl.tgz
+            test/frames_out/frames-gl.gif
+
+
   viewer:
     needs: gds
     runs-on: ubuntu-24.04
