@@ -36,7 +36,7 @@
   "//": "https://tinytapeout.com/faq/#how-can-i-map-an-additional-external-clock-to-one-of-the-gpios",
   "CLOCK_PORT": "clk",
 
-  "FALLBACK_SDC_FILE": "dir::raybox_zero.sdc",
+  "//FALLBACK_SDC_FILE": "dir::raybox_zero.sdc",
 
 
   "//": "Configuration docs: https://librelane.readthedocs.io/en/latest/reference/configuration.html",
